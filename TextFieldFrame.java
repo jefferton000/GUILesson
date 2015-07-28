@@ -40,5 +40,36 @@ public class TextFieldFrame extends JFrame
     // register event handlers
     TextFieldHandler handler = new TextFieldHandler();
     textField1.addActionListener(handler);
-    textField1.addActionListener(handler);
-    textField1.addActionListener(handler);
+    textField2.addActionListener(handler);
+    textField3.addActionListener(handler);
+    passwordField.addActionListener(handler);
+  }
+  
+  // private inner class for event handling
+  private class TextFieldHandler implements ActionListener
+  {
+    // process textfield events
+    @Override
+    public void actionPerformed(ActionEvent event)
+    {
+      String string = "";
+      // user pressed Enter in JTextField textField1
+      if (event.getSource() == textField1)
+        string = String.format("textfield1: %s",
+          event.getActionCommand());
+      
+      // user pressed Enter in JTextField textField1
+      else if (event.getSource() == textField2)
+        string = String.format("textfield2: %s",
+          event.getActionCommand());
+      
+      // user pressed Enter in JTextField textField1
+      else if (event.getSource() == textField3)
+        string = String.format("textfield3: %s",
+          event.getActionCommand());
+      
+      // display JTextField content
+      JOptionPane.showMessageDialog(null, string);
+    }
+  } // end private inner class TextFieldHandler
+}
