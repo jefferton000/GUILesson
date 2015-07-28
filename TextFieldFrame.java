@@ -67,6 +67,11 @@ public class TextFieldFrame extends JFrame
       else if (event.getSource() == textField3)
         string = String.format("textfield3: %s",
           event.getActionCommand());
+          
+      // user pressed Enter in JTextField passwordField
+      else if (event.getSource() == passwordField)
+        string = String.format("passwordField: %s",
+          event.getActionCommand());
       
       // display JTextField content
       JOptionPane.showMessageDialog(null, string);
