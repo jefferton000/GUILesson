@@ -75,6 +75,7 @@ public class TextFieldFrame extends JFrame
       
       // display JTextField content
       JOptionPane.showMessageDialog(null, string);
+      //JOptionPane.showMessageDialog(TextFieldFrame.this, string); //will center dialog based on Frame
     }
   } // end private inner class TextFieldHandler
 }
