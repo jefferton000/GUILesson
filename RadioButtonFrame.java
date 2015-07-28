@@ -48,9 +48,38 @@ public class RadioButtonFrame extends JFrame
     radioGroup.add(boldItalicJRadioButton);
     
     // create font objects
+    plainFont = new Font("Serif", Font.PLAIN, 14);
+    boldFont = new Font("Serif", Font.BOLD, 14);
+    italicFont = new Font("Serif", Font.ITALIC, 14);
+    boldItalicFont = new Font("Serif", Font.BOLD + Font.ITALIC, 14);
+    textField.setFont(plainFont);
     
+    // register events for JRadioButtons
+    plainJRadioButton.addItemListener(
+      new RadioButtonHandler(plainFont));
+    boldJRadioButton.addItemListener(
+      new RadioButtonHandler(boldFont));
+    italicJRadioButton.addItemListener(
+      new RadioButtonHandler(italicFont));
+    boldItalicJRadioButton.addItemListener(
+      new RadioButtonHandler(boldItalicFont));
+  }
+  
+  // private inner class to handle radio button events
+  private class RadioButtonHandler implements ItemListener
+  {
+    private Font font;  //font associated with this listener
     
+    public RadioButtonHandler(Font f)
+    {
+      font = f;
+    }
     
-    
+    // handle radio button events
+    @Override
+    public void itemStateChanged(ItemEvent event)
+    {
+      textField.setFont(font);
+    }
   }
 }
